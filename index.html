@@ -11,18 +11,18 @@ body{
   color:#e5e5e5;
   font-family:"Yu Gothic","Meiryo",sans-serif;
   opacity:0;
-  animation: fadeIn 2s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
 }
 
 @keyframes fadeIn{
   to{opacity:1;}
 }
 
-.container{
+.screen{
+  display:none;
   max-width:900px;
   margin:auto;
   padding:40px;
-  display:none;
 }
 
 .login{
@@ -52,9 +52,16 @@ button{
 
 .error{
   margin-top:20px;
+  color:#c00;
+  font-size:14px;
+  min-height:20px;
+}
+
+.link{
+  margin-top:20px;
   font-size:13px;
-  color:#888;
-  max-width:600px;
+  color:#aaa;
+  cursor:pointer;
 }
 
 h1{
@@ -64,23 +71,12 @@ h1{
 }
 
 .section{
-  margin-top:50px;
-}
-
-details{
-  margin-top:15px;
-  background:#111;
-  padding:15px;
-  border-left:3px solid #333;
-}
-
-summary{
-  cursor:pointer;
-  color:#bbb;
+  margin-top:40px;
+  line-height:1.9;
 }
 
 footer{
-  margin-top:80px;
+  margin-top:60px;
   font-size:12px;
   color:#666;
   border-top:1px solid #222;
@@ -91,101 +87,106 @@ footer{
 
 <body>
 
-<!-- 🔐 LOGIN -->
-<div class="login" id="login">
+<!-- 🔐 LOGIN SCREEN -->
+<div class="login screen" id="login" style="display:flex;">
   <h1>CII INTERNAL DATABASE</h1>
-  <p>ACCESS KEY REQUIRED</p>
-  <input type="password" id="key" placeholder="Passkey">
-  <button onclick="unlock()">ENTER</button>
+  <p>LEVEL 3 ACCESS REQUIRED</p>
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="checkPassword()">ENTER</button>
+  <div class="error" id="errorMsg"></div>
+  <div class="link" onclick="showGuide()">▶ パスワードの入力方法</div>
+</div>
 
-  <details class="error">
-    <summary>▶ パスキーが使用できない場合</summary>
+<!-- 📘 GUIDE SCREEN -->
+<div class="screen" id="guide">
+  <h1>認証入力ガイド</h1>
+  <div class="section">
     <p>
-    一部環境では認証が正常に行われない場合があります。<br>
-    この記録は非公開資料であり、<br>
-    正規権限を持たない閲覧は推奨されていません。<br><br>
-    過去、試行錯誤的に閲覧を続けた事例において、<br>
-    深夜帯の異音報告が増加した記録があります。<br>
-    因果関係は確認されていません。
+    本データベースはレベル制限型アクセスを採用しています。
+    英数字はすべて半角で入力してください。
+    大文字と小文字は区別されます。
+    ブラウザ拡張機能や自動入力補助が干渉する場合があります。
+    その際は手動入力を推奨します。
     </p>
-  </details>
+    <p>
+    認証試行回数が一定数を超えた場合、
+    セキュリティ保護のため一時的に入力を制限します。
+    制限時間経過後に再試行してください。
+    </p>
+  </div>
+  <div class="link" onclick="backToLogin()">▶ 認証画面へ戻る</div>
 </div>
 
-<!-- 📁 CONTENT -->
-<div class="container" id="content">
+<!-- 📁 CONTENT SCREEN -->
+<div class="screen" id="content">
+  <h1>ENTITY FILE : 698-0</h1>
 
-<h1>ENTITY FILE : 698-0</h1>
+  <div class="section">
+    <p>
+    ENTITY 698-0は、深夜帯に限定して報告される未分類現象である。
+    発生時刻は主に01:49から04:29の範囲内に集中している。
+    住宅外部より断続的な打撃音が発生する点が共通している。
+    音源の物理的特定には成功していない。
+    </p>
 
-<div class="section">
-<p>
-ENTITY 698-0は、深夜帯に限定して発生する未分類現象である。
-観測記録は断続的であり、発生地域に明確な偏りは存在しない。
-主な共通点は「住宅外部から聞こえる打撃音」である。
-音は木材同士が接触するような乾いた音として表現されることが多い。
-</p>
+    <p>
+    当該時間帯における録音・映像記録は不安定であり、
+    該当部分のみ欠損する事例が複数確認されている。
+    機器故障との因果関係は証明されていない。
+    </p>
+  </div>
 
-<p>
-発生時刻は01:49から04:29の間に限定される。
-これを超過した事例は確認されていない。
-音源の正確な位置は特定不能であり、
-録音・録画機器による記録はすべて失敗している。
-</p>
-</div>
+  <div class="section">
+    <p>
+    音を確認した場合、外部の視認を控えること。
+    応答行為は禁止されている。
+    視認後の心理影響については継続調査中である。
+    </p>
+  </div>
 
-<div class="section">
-<h2>■ 初動対応指針</h2>
-<p>
-当該音を認識した場合、外部への視線移動を行ってはならない。
-窓、扉、カーテンを完全に閉鎖し、施錠を確認すること。
-呼びかけへの応答、覗き行為は禁止されている。
-</p>
-
-<details>
-<summary>▶ 補足：違反事例</summary>
-<p>
-過去の事例において、覗き窓を使用した住民は、
-対象を「人影」として認識した直後に錯乱状態へ移行した。
-その後の行動は一貫性を欠き、
-12時間以内に███が確認されている。
-</p>
-</details>
-</div>
-
-<div class="section">
-<h2>■ 視認報告</h2>
-<p>
-視認情報には大きな個人差が存在する。
-共通しているのは、対象を「知っている存在」と誤認する点である。
-この誤認は極めて強固であり、
-理性的判断を阻害する可能性が高い。
-</p>
-
-<details>
-<summary>▶ 補足：心理影響</summary>
-<p>
-視認後、時間感覚の消失、
-記憶の欠落、強迫的思考が確認されている。
-これらは医学的疾患とは一致しない。
-</p>
-</details>
-</div>
-
-<footer>
-CII INTERNAL DATABASE<br>
-LEVEL 3 CLEARANCE REQUIRED
-</footer>
-
+  <footer>
+  CII INTERNAL DATABASE<br>
+  LEVEL 3 CLEARANCE
+  </footer>
 </div>
 
 <script>
-function unlock(){
-  const key = document.getElementById("key").value;
-  if(key === "p//wzCII.lv.3"){
+let attempts = 0;
+let locked = false;
+
+function checkPassword(){
+  if(locked) return;
+
+  const input = document.getElementById("password").value;
+  const errorMsg = document.getElementById("errorMsg");
+
+  if(input === "CII3"){
     document.getElementById("login").style.display="none";
     document.getElementById("content").style.display="block";
   }else{
-    alert("ACCESS DENIED");
+    attempts++;
+    errorMsg.textContent="パスワードが間違っています。";
+
+    if(attempts >= 3){
+      locked = true;
+      errorMsg.textContent="入力回数が制限を超えました。1分間ロックされます。";
+      setTimeout(()=>{
+        locked = false;
+        attempts = 0;
+        errorMsg.textContent="";
+      },60000);
+    }
   }
+}
+
+function showGuide(){
+  document.getElementById("login").style.display="none";
+  document.getElementById("guide").style.display="block";
+}
+
+function backToLogin(){
+  document.getElementById("guide").style.display="none";
+  document.getElementById("login").style.display="flex";
 }
 </script>
 
