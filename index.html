@@ -87,7 +87,6 @@ footer{
 
 <body>
 
-<!-- 🔐 LOGIN SCREEN -->
 <div class="login screen" id="login" style="display:flex;">
   <h1>CII INTERNAL DATABASE</h1>
   <p>LEVEL 3 ACCESS REQUIRED</p>
@@ -97,7 +96,6 @@ footer{
   <div class="link" onclick="showGuide()">▶ パスワードの入力方法</div>
 </div>
 
-<!-- 📘 GUIDE SCREEN -->
 <div class="screen" id="guide">
   <h1>認証入力ガイド</h1>
   <div class="section">
@@ -117,30 +115,94 @@ footer{
   <div class="link" onclick="backToLogin()">▶ 認証画面へ戻る</div>
 </div>
 
-<!-- 📁 CONTENT SCREEN -->
 <div class="screen" id="content">
   <h1>ENTITY FILE : 698-0</h1>
 
   <div class="section">
     <p>
-    ENTITY 698-0は、深夜帯に限定して報告される未分類現象である。
-    発生時刻は主に01:49から04:29の範囲内に集中している。
-    住宅外部より断続的な打撃音が発生する点が共通している。
-    音源の物理的特定には成功していない。
+    ENTITY 698-0は、深夜帯に限定して報告される未分類事象である。
+    確認時刻は主に01:49から04:29の範囲に集中している。
+    発生地点は住宅外壁付近と推定されているが、
+    音源の物理的特定には現在まで成功していない。
     </p>
 
     <p>
-    当該時間帯における録音・映像記録は不安定であり、
-    該当部分のみ欠損する事例が複数確認されている。
-    機器故障との因果関係は証明されていない。
+    共通現象として、外部より断続的な打撃音が発生する。
+    音は一定間隔ではなく、
+    2回から3回の短い衝撃音として認識される例が多い。
+    稀に数分間継続する事例も存在する。
+    音量は環境条件に依存せず、
+    被験者はいずれも「至近距離で鳴っている」と証言している。
     </p>
   </div>
 
   <div class="section">
     <p>
-    音を確認した場合、外部の視認を控えること。
-    応答行為は禁止されている。
-    視認後の心理影響については継続調査中である。
+    当該時間帯における録音・映像記録は著しく不安定である。
+    該当時刻のみデータが欠損する、
+    あるいは異常なノイズが混入する事例が複数確認されている。
+    機器側の故障は再現されていない。
+    </p>
+
+    <p>
+    発生地域に統一性はなく、
+    同一地区での連続発生も確認されていない。
+    初回報告は1998年冬季と記録されている。
+    報告者の多くは単独在宅時に事象を確認している。
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+    音を確認した場合、外部の視認を行わないこと。
+    応答行為、接触行為は禁止されている。
+    音源の特定を目的とした直接的調査は現在凍結中である。
+    </p>
+
+    <p>
+    なお、視認を行ったと主張する少数の報告例が存在するが、
+    証言内容は著しく不整合を示している。
+    共通記述は
+    「外部に存在するはずのない位置に何らかの存在を認識した」
+    という一点のみである。
+    </p>
+
+    <p>
+    音停止後に外部確認を行った事例では、
+    建造物への損傷および物理的痕跡は一切確認されていない。
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="link" onclick="toggleDetail()">▶ 詳細記録を表示</div>
+
+    <div id="detailSection" style="display:none; margin-top:20px; line-height:1.9;">
+      <p>
+      詳細補足記録:
+      一部報告では、打撃音発生直前に周囲環境音が減衰する現象が確認されている。
+      風音、車両通過音、室内機器音が一時的に記録されなくなる傾向がある。
+      </p>
+
+      <p>
+      音の発生回数と在宅人数の関連性は確認されていない。
+      ただし複数人在宅時は発生率が低下する可能性が示唆されている。
+      現段階では統計的有意性は認められていない。
+      </p>
+
+      <p>
+      報告者の一部は、
+      打撃音停止後も外部に「存在の継続」を感じたと証言している。
+      物理的検証は行われていない。
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p>
+    内部注意:
+    本記録は定期的に更新される。
+    前回閲覧時と記述内容に差異が認められた場合、
+    端末を終了し、上位権限管理者へ報告すること。
     </p>
   </div>
 
@@ -151,34 +213,7 @@ footer{
 </div>
 
 <script>
-let attempts = 0;
-let locked = false;
-
-function checkPassword(){
-  if(locked) return;
-
-  const input = document.getElementById("password").value;
-  const errorMsg = document.getElementById("errorMsg");
-
-  if(input === "CII3"){
-    document.getElementById("login").style.display="none";
-    document.getElementById("content").style.display="block";
-  }else{
-    attempts++;
-    errorMsg.textContent="パスワードが間違っています。";
-
-    if(attempts >= 3){
-      locked = true;
-      errorMsg.textContent="入力回数が制限を超えました。1分間ロックされます。";
-      setTimeout(()=>{
-        locked = false;
-        attempts = 0;
-        errorMsg.textContent="";
-      },60000);
-    }
-  }
-}
-
+/* ===== UI Functions ===== */
 function showGuide(){
   document.getElementById("login").style.display="none";
   document.getElementById("guide").style.display="block";
@@ -188,13 +223,20 @@ function backToLogin(){
   document.getElementById("guide").style.display="none";
   document.getElementById("login").style.display="flex";
 }
-</script>
-  
-<script>
-/* ===== Persistent Lock System Add-on ===== */
+
+function toggleDetail(){
+  const detail = document.getElementById("detailSection");
+  if(detail.style.display === "none"){
+    detail.style.display = "block";
+  } else {
+    detail.style.display = "none";
+  }
+}
+
+/* ===== Persistent Lock System & Auth ===== */
 (function(){
 
-const LOCK_TIME = 60000; // 1分
+const LOCK_TIME = 60000; 
 let attempts = 0;
 
 const errorMsg = document.getElementById("errorMsg");
