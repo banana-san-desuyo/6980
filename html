@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ENTITY FILE No.698-0</title>
+
+<style>
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Courier New", monospace;
+  line-height: 1.7;
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+section {
+  border-top: 2px solid #900;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+h2 {
+  border-left: 5px solid #900;
+  padding-left: 10px;
+}
+
+strong { color: #c00; }
+
+.code {
+  background: #111;
+  padding: 2px 5px;
+  border: 1px solid #900;
+  color: #c00;
+}
+
+.warning {
+  background: #200;
+  border: 1px solid #900;
+  padding: 15px;
+  margin-top: 30px;
+  color: #f88;
+}
+
+#lockscreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  background: #111;
+  color: white;
+  border: 1px solid #900;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  background: #900;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+function unlock() {
+  const pass = document.getElementById("pass").value;
+  if (pass === "6980") {   // ←ここを好きなパスキーに変更
+    document.getElementById("lockscreen").style.display = "none";
+  } else {
+    alert("アクセス拒否");
+  }
+}
+</script>
+</head>
+
+<body>
+
+<div id="lockscreen">
+  <h2>アクセス制限</h2>
+  <p>レベル3以上の認証が必要です。</p>
+  <input type="password" id="pass" placeholder="PASSKEY">
+  <button onclick="unlock()">認証</button>
+</div>
+
+<pre>
+████████████████████████████████████████████████████
+CII データベース記録 - ENTITY FILE No.<span class="code">698-0</span>
+分類：機密 ／ 閲覧権限：レベル3以上
+████████████████████████████████████████████████████
+</pre>
+
+<section>
+<h2>■ ENTITY概要</h2>
+<p>
+<span class="code">ENTITY 698-0</span> は、
+深夜01:49〜04:29に限定して発生が確認されている未分類存在です。
+当該時間帯、住宅外部より木質物を打撃するような断続音が報告されています。
+音源は特定されておらず、映像・録音による記録は成功していません。
+</p>
+</section>
+
+<section>
+<h2>■ 行動指針</h2>
+<p>
+音を確認した場合、直ちに窓および出入口を完全に閉鎖してください。
+外部を視認しないでください。
+ドアスコープの使用も禁止されています。
+応答行為は行わないでください。
+</p>
+</section>
+
+<section>
+<h2>■ 視認事例</h2>
+<p>
+視認者は共通して「人が立っていた」と証言しています。
+外見の一致は確認されていません。
+一部は「知人に類似していた」と発言していますが、
+関連性は不明です。
+</p>
+<p>
+視認後、急性精神障害、記憶混濁、発語障害が発生。
+12時間以内に███へ至った事例が複数存在します。
+医学的死因は確定していません。
+</p>
+</section>
+
+<section>
+<h2>■ 統計情報</h2>
+<p>
+確認事例数：██件<br>
+死亡事例：██件<br>
+未発症例：0件
+</p>
+<p>
+集合住宅での同時多発事例は未確認。
+動物が無音状態になる報告あり。
+</p>
+</section>
+
+<section>
+<h2>■ 備考</h2>
+<p>
+ENTITY 698-0が外部実体であるか、
+認識災害であるかは未解明です。
+</p>
+<p>
+それが外に存在するのか、
+すでに内部で発生しているのかは判明していません。
+</p>
+</section>
+
+<section>
+<div class="warning">
+本記録はCII内部資料です。無断閲覧・転載を禁じます。
+</div>
+</section>
+
+</body>
+</html>
