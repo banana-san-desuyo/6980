@@ -189,6 +189,87 @@ function backToLogin(){
   document.getElementById("login").style.display="flex";
 }
 </script>
+  
+<script>
+/* ===== Persistent Lock System Add-on ===== */
+(function(){
 
+const LOCK_TIME = 60000; // 1分
+let attempts = 0;
+
+const errorMsg = document.getElementById("errorMsg");
+const input = document.getElementById("password");
+
+function getLockUntil(){
+  return parseInt(localStorage.getItem("lockUntil") || "0", 10);
+}
+
+function setLock(){
+  const until = Date.now() + LOCK_TIME;
+  localStorage.setItem("lockUntil", until);
+  lockScreen();
+}
+
+function clearLock(){
+  localStorage.removeItem("lockUntil");
+  attempts = 0;
+  if(input) input.disabled = false;
+  if(errorMsg) errorMsg.textContent = "";
+}
+
+function lockScreen(){
+  const until = getLockUntil();
+  if(!until) return;
+
+  const remaining = Math.max(0, Math.ceil((until - Date.now())/1000));
+
+  if(input) input.disabled = true;
+  if(errorMsg) {
+    errorMsg.style.color = "#c00";
+    errorMsg.textContent = 
+      "入力回数が制限を超えました。ロック中 (" + remaining + "秒)";
+  }
+
+  if(remaining > 0){
+    setTimeout(lockScreen,1000);
+  }else{
+    clearLock();
+  }
+}
+
+window.checkPassword = function(){
+  if(Date.now() < getLockUntil()){
+    lockScreen();
+    return;
+  }
+
+  const value = input ? input.value : "";
+
+  if(value === "CII3"){
+    clearLock();
+    document.getElementById("login").style.display="none";
+    document.getElementById("content").style.display="block";
+  }else{
+    attempts++;
+    if(errorMsg){
+      errorMsg.style.color = "#c00";
+      errorMsg.textContent="パスワードが間違っています。";
+    }
+
+    if(attempts >= 3){
+      setLock();
+    }
+  }
+};
+
+window.addEventListener("load", function(){
+  if(Date.now() < getLockUntil()){
+    lockScreen();
+  }
+});
+
+})();
+</script>
+  
 </body>
 </html>
