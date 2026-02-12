@@ -70,6 +70,11 @@ h1{
   padding-bottom:10px;
 }
 
+h2{
+  font-size:16px;
+  margin-top:30px;
+}
+
 .section{
   margin-top:40px;
   line-height:1.9;
@@ -87,34 +92,16 @@ footer{
 
 <body>
 
+<!-- LOGIN -->
 <div class="login screen" id="login" style="display:flex;">
   <h1>CII INTERNAL DATABASE</h1>
   <p>LEVEL 3 ACCESS REQUIRED</p>
   <input type="password" id="password" placeholder="Password">
   <button onclick="checkPassword()">ENTER</button>
   <div class="error" id="errorMsg"></div>
-  <div class="link" onclick="showGuide()">▶ パスワードの入力方法</div>
 </div>
 
-<div class="screen" id="guide">
-  <h1>認証入力ガイド</h1>
-  <div class="section">
-    <p>
-    本データベースはレベル制限型アクセスを採用しています。
-    英数字はすべて半角で入力してください。
-    大文字と小文字は区別されます。
-    ブラウザ拡張機能や自動入力補助が干渉する場合があります。
-    その際は手動入力を推奨します。
-    </p>
-    <p>
-    認証試行回数が一定数を超えた場合、
-    セキュリティ保護のため一時的に入力を制限します。
-    制限時間経過後に再試行してください。
-    </p>
-  </div>
-  <div class="link" onclick="backToLogin()">▶ 認証画面へ戻る</div>
-</div>
-
+<!-- CONTENT -->
 <div class="screen" id="content">
   <h1>ENTITY FILE : 698-0</h1>
 
@@ -128,8 +115,7 @@ footer{
 
     <p>
     共通現象として、外部より断続的な打撃音が発生する。
-    音は一定間隔ではなく、
-    2回から3回の短い衝撃音として認識される例が多い。
+    音は一定間隔ではなく、2回から3回の短い衝撃音として認識される例が多い。
     稀に数分間継続する事例も存在する。
     音量は環境条件に依存せず、
     被験者はいずれも「至近距離で鳴っている」と証言している。
@@ -145,146 +131,34 @@ footer{
     </p>
 
     <p>
+    初回報告は1998年冬季。
     発生地域に統一性はなく、
     同一地区での連続発生も確認されていない。
-    初回報告は1998年冬季と記録されている。
     報告者の多くは単独在宅時に事象を確認している。
-    </p>
-  </div>
-
-  <div class="section">
-    <p>
-    音を確認した場合、外部の視認を行わないこと。
-    応答行為、接触行為は禁止されている。
-    音源の特定を目的とした直接的調査は現在凍結中である。
-    </p>
-
-    <p>
-    なお、視認を行ったと主張する少数の報告例が存在するが、
-    証言内容は著しく不整合を示している。
-    共通記述は
-    「外部に存在するはずのない位置に何らかの存在を認識した」
-    という一点のみである。
-    </p>
-
-    <p>
-    音停止後に外部確認を行った事例では、
-    建造物への損傷および物理的痕跡は一切確認されていない。
     </p>
   </div>
 
   <div class="section">
     <div class="link" onclick="toggleDetail()">▶ 詳細記録を表示</div>
 
-    <div id="detailSection" style="display:none; margin-top:20px; line-height:1.9;">
+    <div id="detailSection" style="display:none; margin-top:20px;">
       <p>
-      詳細補足記録:
       一部報告では、打撃音発生直前に周囲環境音が減衰する現象が確認されている。
       風音、車両通過音、室内機器音が一時的に記録されなくなる傾向がある。
       </p>
 
       <p>
-      音の発生回数と在宅人数の関連性は確認されていない。
-      ただし複数人在宅時は発生率が低下する可能性が示唆されている。
-      現段階では統計的有意性は認められていない。
-      </p>
-
-      <p>
-      報告者の一部は、
-      打撃音停止後も外部に「存在の継続」を感じたと証言している。
-      物理的検証は行われていない。
-      </p>
-    </div>
-  </div>
-
-  <div class="section">
-    <p>
-    内部注意:
-    本記録は定期的に更新される。
-    前回閲覧時と記述内容に差異が認められた場合、
-    端末を終了し、上位権限管理者へ報告すること。
-    </p>
-  </div>
-<div class="screen" id="content">
-  <h1>ENTITY FILE : 698-0</h1>
-
-  <div class="section">
-    <p>
-    ENTITY 698-0は、深夜帯に限定して報告される未分類事象である。
-    確認時刻は主に01:49から04:29の範囲に集中している。
-    報告件数は断続的に増減しており、統計上の地域的偏りは認められていない。
-    発生地点は主に住宅外壁付近と推定されているが、
-    音源の物理的特定には現在まで成功していない。
-    </p>
-
-    <p>
-    共通現象として、外部より断続的な打撃音が発生する。
-    音は一定間隔ではなく、2回から3回の短い衝撃音として認識される例が多い。
-    稀に数分間継続する事例も存在する。
-    音量は環境条件に依存せず、
-    被験者はいずれも「至近距離で鳴っている」と証言している。
-    しかし外部確認後、物理的痕跡が確認された事例は存在しない。
-    </p>
-
-  <div class="section">
-    <p>
-    録音・映像記録は著しく不安定である。
-    当該時間帯のみデータが欠損する、
-    あるいは断続的なノイズが混入する事例が複数確認されている。
-    機器側の故障再現は確認されていない。
-    なお、複数機器を同時設置した事例においても、
-    同一時刻帯に限り記録異常が発生している。
-    </p>
-
-    <p>
-    初回報告は1998年冬季。
-    記録媒体は家庭用留守番電話の音声テープであった。
-    音声は記録されていたが、再生時刻のタイムスタンプが
-    存在しない状態で保存されていたと報告されている。
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>観測ログ抜粋 ▶</h2>
-    <div class="toggle" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
-      ▼ 展開
-    <div>
-    <div style="display:none; margin-top:10px;">
-
-      <p>
-      2001/02/17 02:13  
-      被験者Aは壁面より「コン、コン、コン」という軽度打撃音を確認。
-      外部確認は未実施。翌日、外壁に異常なし。
-      </p>
-
-      <p>
       2004/09/03 03:02  
-      被験者Bは窓付近より2回の衝撃音を確認。
-      音停止後に確認を行うも異常なし。
+      音停止後に外部確認を実施。
+      建造物への損傷は確認されなかった。
       録音データは該当時間帯のみ無音。
       </p>
 
       <p>
-      2008/11/29 01:58  
-      被験者Cは打撃音と同時に「外側から覗かれている感覚」を証言。
-      外部照明を点灯したが視認対象なし。
-      記録映像はノイズ混入。
-      </p>
-
-      <p>
       2012/06/14 02:41  
-      被験者Dは音発生後、外壁方向に視線を向けたと証言。
-      「外部に存在するはずのない位置に影状のものを確認した」と報告。
-      証言内容に整合性なし。
-      </p>
-
-      <p>
-      2019/01/19 03:27  
-      音確認後、数秒間の無音状態が発生。
-      被験者は「音が止まったのではなく、待機しているように感じた」と記述。
+      被験者は「距離感が成立していなかった」と証言。
       物理的異常なし。
       </p>
-
     </div>
   </div>
 
@@ -292,44 +166,16 @@ footer{
     <p>
     音を確認した場合、外部の視認を行わないこと。
     応答行為、接触行為は禁止されている。
-    音源の特定を目的とした直接的調査は現在凍結中である。
     </p>
 
-    <p>
-    視認を行ったと主張する少数報告例に共通する記述は、
-    「距離感が成立していなかった」という一点のみである。
-    対象は近距離に存在するように感じられるが、
-    同時に視覚的焦点が合致しないと証言されている。
-    </p>
-
-    <p>
-    音停止後に外部確認を行った事例では、
-    建造物への損傷および物理的痕跡は一切確認されていない。
-    ただし、被験者の一部に睡眠障害および
-    軽度の被監視感が継続する例がある。
-    因果関係は不明。
-    </p>
-  </div>
-
-  <div class="section">
-    <p>
+    <p style="opacity:0.6;">
     内部注意:
     本記録は定期的に更新される。
     前回閲覧時と記述内容に差異が認められた場合、
     端末を終了し、上位権限管理者へ報告すること。
     </p>
-
-    <p style="opacity:0.6;">
-    ※ 当該文書は閲覧ログを取得しています。
-    最終アクセス時刻は自動記録されます。
-    </p>
   </div>
 
-  <footer>
-  CII INTERNAL DATABASE<br>
-  LEVEL 3 CLEARANCE
-  </footer>
-</div>
   <footer>
   CII INTERNAL DATABASE<br>
   LEVEL 3 CLEARANCE
@@ -337,30 +183,9 @@ footer{
 </div>
 
 <script>
-/* ===== UI Functions ===== */
-function showGuide(){
-  document.getElementById("login").style.display="none";
-  document.getElementById("guide").style.display="block";
-}
-
-function backToLogin(){
-  document.getElementById("guide").style.display="none";
-  document.getElementById("login").style.display="flex";
-}
-
-function toggleDetail(){
-  const detail = document.getElementById("detailSection");
-  if(detail.style.display === "none"){
-    detail.style.display = "block";
-  } else {
-    detail.style.display = "none";
-  }
-}
-
-/* ===== Persistent Lock System & Auth ===== */
 (function(){
 
-const LOCK_TIME = 60000; 
+const LOCK_TIME = 60000;
 let attempts = 0;
 
 const errorMsg = document.getElementById("errorMsg");
@@ -379,8 +204,8 @@ function setLock(){
 function clearLock(){
   localStorage.removeItem("lockUntil");
   attempts = 0;
-  if(input) input.disabled = false;
-  if(errorMsg) errorMsg.textContent = "";
+  input.disabled = false;
+  errorMsg.textContent = "";
 }
 
 function lockScreen(){
@@ -388,13 +213,8 @@ function lockScreen(){
   if(!until) return;
 
   const remaining = Math.max(0, Math.ceil((until - Date.now())/1000));
-
-  if(input) input.disabled = true;
-  if(errorMsg) {
-    errorMsg.style.color = "#c00";
-    errorMsg.textContent = 
-      "入力回数が制限を超えました。ロック中 (" + remaining + "秒)";
-  }
+  input.disabled = true;
+  errorMsg.textContent = "ロック中 (" + remaining + "秒)";
 
   if(remaining > 0){
     setTimeout(lockScreen,1000);
@@ -409,23 +229,22 @@ window.checkPassword = function(){
     return;
   }
 
-  const value = input ? input.value : "";
-
-  if(value === "CII3"){
+  if(input.value === "CII3"){
     clearLock();
     document.getElementById("login").style.display="none";
     document.getElementById("content").style.display="block";
   }else{
     attempts++;
-    if(errorMsg){
-      errorMsg.style.color = "#c00";
-      errorMsg.textContent="パスワードが間違っています。";
-    }
-
+    errorMsg.textContent="パスワードが間違っています。";
     if(attempts >= 3){
       setLock();
     }
   }
+};
+
+window.toggleDetail = function(){
+  const detail = document.getElementById("detailSection");
+  detail.style.display = detail.style.display === "none" ? "block" : "none";
 };
 
 window.addEventListener("load", function(){
@@ -436,6 +255,6 @@ window.addEventListener("load", function(){
 
 })();
 </script>
-  
+
 </body>
 </html>
