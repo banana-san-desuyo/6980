@@ -2,18 +2,59 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>CII DATABASE - ENTITY 698-0</title>
+<title>CII INTERNAL DATABASE</title>
 
 <style>
 body{
-  background:#0a0a0a;
-  color:#e0e0e0;
-  font-family: "Yu Gothic", "Meiryo", sans-serif;
+  margin:0;
+  background:#0b0b0b;
+  color:#e5e5e5;
+  font-family:"Yu Gothic","Meiryo",sans-serif;
+  opacity:0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+
+.container{
   max-width:900px;
   margin:auto;
   padding:40px;
-  line-height:1.9;
-  font-size:14px;
+  display:none;
+}
+
+.login{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+input{
+  background:#111;
+  border:1px solid #333;
+  color:#eee;
+  padding:10px;
+  width:260px;
+}
+
+button{
+  margin-top:15px;
+  padding:8px 20px;
+  background:#222;
+  color:#ccc;
+  border:1px solid #444;
+  cursor:pointer;
+}
+
+.error{
+  margin-top:20px;
+  font-size:13px;
+  color:#888;
+  max-width:600px;
 }
 
 h1{
@@ -23,14 +64,14 @@ h1{
 }
 
 .section{
-  margin-top:40px;
+  margin-top:50px;
 }
 
 details{
-  margin-top:10px;
+  margin-top:15px;
   background:#111;
-  padding:10px 15px;
-  border-left:3px solid #444;
+  padding:15px;
+  border-left:3px solid #333;
 }
 
 summary{
@@ -39,7 +80,7 @@ summary{
 }
 
 footer{
-  margin-top:60px;
+  margin-top:80px;
   font-size:12px;
   color:#666;
   border-top:1px solid #222;
@@ -50,100 +91,103 @@ footer{
 
 <body>
 
-<h1>機密記録データベース — ENTITY 698-0</h1>
+<!-- 🔐 LOGIN -->
+<div class="login" id="login">
+  <h1>CII INTERNAL DATABASE</h1>
+  <p>ACCESS KEY REQUIRED</p>
+  <input type="password" id="key" placeholder="Passkey">
+  <button onclick="unlock()">ENTER</button>
+
+  <details class="error">
+    <summary>▶ パスキーが使用できない場合</summary>
+    <p>
+    一部環境では認証が正常に行われない場合があります。<br>
+    この記録は非公開資料であり、<br>
+    正規権限を持たない閲覧は推奨されていません。<br><br>
+    過去、試行錯誤的に閲覧を続けた事例において、<br>
+    深夜帯の異音報告が増加した記録があります。<br>
+    因果関係は確認されていません。
+    </p>
+  </details>
+</div>
+
+<!-- 📁 CONTENT -->
+<div class="container" id="content">
+
+<h1>ENTITY FILE : 698-0</h1>
 
 <div class="section">
 <p>
-本記録は、国内複数地域において断続的に報告されている未分類現象
-「ENTITY 698-0」に関する観測・統計・対処記録を統合したものである。
-当該現象は主に深夜帯、01:49から04:29の間に限定して発生が確認されている。
-発生時、対象住宅の外部より木材を打撃するような乾いた音が断続的に響く。
-音源の位置は一定せず、庭、玄関扉、窓枠、外壁など報告に揺らぎがある。
-しかし共通しているのは「屋外からであると確信した」という証言である。
+ENTITY 698-0は、深夜帯に限定して発生する未分類現象である。
+観測記録は断続的であり、発生地域に明確な偏りは存在しない。
+主な共通点は「住宅外部から聞こえる打撃音」である。
+音は木材同士が接触するような乾いた音として表現されることが多い。
 </p>
 
 <p>
-打撃音は通常3回から7回で停止する。
-停止後、約30秒から2分の無音状態を経て再度発生する場合がある。
-録音機器による記録は成功例がなく、
-当該時間帯の音声データはすべて異常なノイズに置換されている。
-映像機器においても同様に、該当時間帯のみフレーム欠落が確認されている。
-機器の物理的故障は認められていない。
+発生時刻は01:49から04:29の間に限定される。
+これを超過した事例は確認されていない。
+音源の正確な位置は特定不能であり、
+録音・録画機器による記録はすべて失敗している。
 </p>
 </div>
 
 <div class="section">
-<h2>■ 行動指針</h2>
+<h2>■ 初動対応指針</h2>
 <p>
-音を確認した場合、外部の視認を行ってはならない。
-窓・扉の施錠確認を行い、応答行為を一切禁止する。
-ドアスコープの使用、カーテンの隙間からの確認行為も同様に制限対象とする。
-対象は呼びかけ、あるいは既知の人物に酷似した声質を用いる可能性が示唆されている。
+当該音を認識した場合、外部への視線移動を行ってはならない。
+窓、扉、カーテンを完全に閉鎖し、施錠を確認すること。
+呼びかけへの応答、覗き行為は禁止されている。
 </p>
 
 <details>
-<summary>▶ 補足情報：視認事例</summary>
+<summary>▶ 補足：違反事例</summary>
 <p>
-過去の視認事例において、外部に「人物が立っていた」との報告が複数存在する。
-外見の共通点は確認されていないが、
-視認者の多くが「知人であると錯覚した」と証言している。
-視認後、急性精神錯乱、時間認識の欠落、
-および記憶断片化が発生している。
-12時間以内に███へ至った事例が記録されているが、
-医学的死因は特定されていない。
+過去の事例において、覗き窓を使用した住民は、
+対象を「人影」として認識した直後に錯乱状態へ移行した。
+その後の行動は一貫性を欠き、
+12時間以内に███が確認されている。
 </p>
 </details>
 </div>
 
 <div class="section">
-<h2>■ 統計概要</h2>
+<h2>■ 視認報告</h2>
 <p>
-確認報告数：██件  
-死亡確認数：██件  
-未発症例：0件  
-集合住宅における同時多発事例は未確認。
-発生時刻はいずれも04:29以前に終了している。
-04:29以降に音が継続した事例は存在しない。
+視認情報には大きな個人差が存在する。
+共通しているのは、対象を「知っている存在」と誤認する点である。
+この誤認は極めて強固であり、
+理性的判断を阻害する可能性が高い。
 </p>
 
 <details>
-<summary>▶ 補足情報：環境変化</summary>
+<summary>▶ 補足：心理影響</summary>
 <p>
-発生時刻前後において、周辺動物の鳴き声停止、
-室内時計の数秒単位の遅延、
-携帯端末の通信断が報告されている。
-いずれも物理的原因は不明。
-外部実体の存在を裏付ける証拠は確認されていない。
-</p>
-</details>
-</div>
-
-<div class="section">
-<h2>■ 現在の見解</h2>
-<p>
-ENTITY 698-0が外部存在であるか、
-あるいは認識災害であるかは確定していない。
-観測者依存性の可能性も否定されていない。
-本記録の閲覧後に同様の音を報告した例が存在するが、
-因果関係は証明されていない。
-</p>
-
-<details>
-<summary>▶ 補足情報：閲覧者統計</summary>
-<p>
-内部資料閲覧者のうち██%が、
-閲覧当日中に断続音を経験したと報告している。
-ただし再現性は確認されていない。
-本統計は参考値であり、
-閲覧制限の判断材料とはしていない。
+視認後、時間感覚の消失、
+記憶の欠落、強迫的思考が確認されている。
+これらは医学的疾患とは一致しない。
 </p>
 </details>
 </div>
 
 <footer>
-CII Internal Database / Level-3 Clearance Required<br>
-Unauthorized redistribution is prohibited.
+CII INTERNAL DATABASE<br>
+LEVEL 3 CLEARANCE REQUIRED
 </footer>
+
+</div>
+
+<script>
+function unlock(){
+  const key = document.getElementById("key").value;
+  if(key === "p//wzCII.lv.3"){
+    document.getElementById("login").style.display="none";
+    document.getElementById("content").style.display="block";
+  }else{
+    alert("ACCESS DENIED");
+  }
+}
+</script>
 
 </body>
 </html>
