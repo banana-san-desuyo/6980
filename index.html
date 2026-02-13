@@ -11,7 +11,7 @@ body{
   color:#e5e5e5;
   font-family:"Yu Gothic","Meiryo",sans-serif;
   opacity:0;
-  animation: fadeIn 1.5s ease forwards;
+  animation: fadeIn 1.8s ease forwards;
 }
 
 @keyframes fadeIn{
@@ -20,9 +20,9 @@ body{
 
 .screen{
   display:none;
-  max-width:900px;
+  max-width:980px;
   margin:auto;
-  padding:40px;
+  padding:50px;
 }
 
 .login{
@@ -65,25 +65,34 @@ button{
 }
 
 h1{
-  font-size:20px;
+  font-size:22px;
   border-bottom:1px solid #333;
   padding-bottom:10px;
 }
 
 h2{
   font-size:16px;
-  margin-top:30px;
-  border-bottom:1px solid #333;
-  padding-bottom:5px;
+  margin-top:40px;
+  border-bottom:1px solid #222;
+  padding-bottom:6px;
+  color:#ccc;
 }
 
 .section{
   margin-top:40px;
-  line-height:1.9;
+  line-height:2.1;
+  font-size:14px;
+}
+
+.toc{
+  margin-top:30px;
+  font-size:13px;
+  color:#777;
+  line-height:1.8;
 }
 
 footer{
-  margin-top:60px;
+  margin-top:80px;
   font-size:12px;
   color:#666;
   border-top:1px solid #222;
@@ -100,182 +109,249 @@ footer{
   <input type="password" id="password" placeholder="Password">
   <button onclick="checkPassword()">ENTER</button>
   <div class="error" id="errorMsg"></div>
-  <div class="link" onclick="showGuide()">▶ パスワードの入力方法</div>
-</div>
-
-<div class="screen" id="guide">
-  <h1>認証入力ガイド</h1>
-  <div class="section">
-    <p>
-    本データベースはレベル制限型アクセスを採用しています。
-    英数字はすべて半角で入力してください。
-    大文字と小文字は区別されます。
-    ブラウザ拡張機能や自動入力補助が干渉する場合があります。
-    その際は手動入力を推奨します。
-    </p>
-    <p>
-    認証試行回数が一定数を超えた場合、
-    セキュリティ保護のため一時的に入力を制限します。
-    制限時間経過後に再試行してください。
-    </p>
-  </div>
-  <div class="link" onclick="backToLogin()">▶ 認証画面へ戻る</div>
 </div>
 
 <div class="screen" id="content">
-  <h1>ENTITY FILE : 698-0</h1>
 
-  <div class="section">
-    <p>
-    ENTITY 698-0は、深夜帯に限定して報告される未分類事象である。確認時刻は主に01:49から04:29の範囲に集中している。
-    発生地点は住宅外壁付近と推定されているが、音源の物理的特定には現在まで成功していない。
-    報告件数は断続的に増減しており、統計上の地域的偏りは確認されていない。
-    </p>
+<h1>ENTITY FILE : 9867</h1>
 
-    <p>
-    共通現象として、外部より断続的な打撃音が発生する。音は一定間隔ではなく、2回から3回の短い衝撃音として認識される例が多い。
-    稀に数分間継続する事例も存在する。音量は環境条件に依存せず、被験者はいずれも「至近距離で鳴っている」と証言している。
-    外部確認後、物理的痕跡が確認された事例は存在せず、異常現象の分類は未解明のままである。
-    </p>
-  </div>
+<div class="toc">
+【目次】<br>
+1. 概要<br>
+2. 粒子トンネル現象の特性<br>
+3. 被害者記録<br>
+4. 発生環境分析<br>
+5. 観測データ<br>
+6. 時間偏位特性<br>
+7. 残留現象<br>
+8. 内部警告<br>
+※ 本目次は参照用であり、展開機能は存在しない。
+</div>
 
-  <div class="section">
-    <p>
-    録音・映像記録は著しく不安定である。該当時間帯のみデータが欠損する、あるいは断続的なノイズが混入する事例が複数確認されている。
-    機器側の故障再現は確認されていない。複数機器を同時設置した事例においても、同一時刻帯に限り記録異常が発生している。
-    初回報告は1998年冬季であり、家庭用留守番電話の音声テープにて記録されていたが、再生時刻のタイムスタンプは存在しなかった。
-    </p>
-  </div>
+<!-- 概要 -->
+<div class="section">
+<h2>1. 概要</h2>
 
-  <div class="section">
-    <h2>観測ログ抜粋 ▶</h2>
-    <div class="toggle" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
-      ▼ 展開
-    <div>
-    <div style="display:none; margin-top:10px;">
+<p>
+ENTITY 9867は、局所的空間において突発的に発生する「粒子トンネル現象」に分類される未解明事象である。
+発生は完全に予測不能であり、環境条件、時間帯、地理的条件との明確な相関は確認されていない。
+</p>
 
-      <p>
-      2001/02/17 02:13  
-      被験者Aは壁面より「コン、コン、コン」という軽度打撃音を確認。
-      外部確認は未実施。翌日、外壁に異常なし。
-      </p>
+<p>
+現象発生時、対象空間に微弱な光学的歪みが観測される。
+歪みは空間に縦方向の裂け目のように出現し、持続時間は0.4秒から最大2.8秒。
+発生直後、対象人物が視認不能となり、物理的痕跡を残さず消失する。
+</p>
 
-      <p>
-      2004/09/03 03:02  
-      被験者Bは窓付近より2回の衝撃音を確認。
-      音停止後に確認を行うも異常なし。録音データは該当時間帯のみ無音。
-      </p>
+<p>
+消失後、対象人物の再出現例は現在まで確認されていない。
+死亡確認も不可能であり、法的には「行方不明」扱いとなる。
+</p>
 
-      <p>
-      2008/11/29 01:58  
-      被験者Cは打撃音と同時に「外側から覗かれている感覚」を証言。
-      外部照明を点灯したが視認対象なし。記録映像はノイズ混入。
-      </p>
+<p>
+本現象は物理学上の理論における量子トンネル効果と名称が類似するが、
+既存理論では説明不能である。
+</p>
+</div>
 
-      <p>
-      2012/06/14 02:41  
-      被験者Dは音発生後、外壁方向に視線を向けたと証言。
-      「外部に存在するはずのない位置に影状のものを確認した」と報告。
-      証言内容に整合性なし。
-      </p>
+<!-- 粒子トンネル現象 -->
+<div class="section">
+<h2>2. 粒子トンネル現象の特性</h2>
 
-      <p>
-      2019/01/19 03:27  
-      音確認後、数秒間の無音状態が発生。
-      被験者は「音が止まったのではなく、待機しているように感じた」と記述。
-      物理的異常なし。
-      </p>
+<p>
+発生直前、空気密度の局所低下が観測される例がある。
+また、電子機器の微弱なノイズ増加、通信断続が確認されている。
+</p>
 
-    </div>
-    </div>
-  </div>
+<p>
+空間歪曲は肉眼では「揺らぎ」として認識される。
+透明な水面を縦に裂いたような視覚効果を伴う。
+歪みの内部は暗色を帯びるが、完全な黒ではない。
+</p>
 
-  <div class="section">
-    <div class="link" id="toggleDetailBtn" onclick="toggleDetail()">▶ 詳細</div>
-    <div id="detailSection" style="display:none; margin-top:20px; line-height:1.9;">
-      <p>
-      詳細補足記録:
-      一部報告では、打撃音発生直前に周囲環境音が減衰する現象が確認されている。
-      風音、車両通過音、室内機器音が一時的に記録されなくなる傾向がある。
-      </p>
+<p>
+赤外線・紫外線観測では異常なスペクトル偏位が検出されるが、
+波長パターンは一定しない。
+</p>
 
-      <p>
-      音の発生回数と在宅人数の関連性は確認されていない。
-      ただし複数人在宅時は発生率が低下する可能性が示唆されている。
-      現段階では統計的有意性は認められていない。
-      </p>
+<p>
+発生後、周囲温度は平均0.7℃低下する。
+持続時間は最大20秒。
+</p>
 
-      <p>
-      報告者の一部は、打撃音停止後も外部に「存在の継続」を感じたと証言している。
-      物理的検証は行われていない。
-      </p>
-    </div>
-  </div>
+<p>
+音響的現象はほぼ存在しない。
+しかし一部証言では「空気が抜けるような音」を確認。
+</p>
+</div>
 
-  <div class="section">
-    <p>
-    音を確認した場合、外部の視認を行わないこと。
-    応答行為、接触行為は禁止されている。
-    音源の特定を目的とした直接的調査は現在凍結中である。
-    </p>
+<!-- 被害者 -->
+<div class="section">
+<h2>3. 被害者記録</h2>
 
-    <p>
-    視認を行ったと主張する少数報告例に共通する記述は、
-    「距離感が成立していなかった」という一点のみである。
-    対象は近距離に存在するように感じられるが、同時に視覚的焦点が合致しないと証言されている。
-    </p>
+<p>
+被害者は単独行動中の成人が多い。
+年齢層は18歳から47歳。
+職業・性別に偏りは確認されていない。
+</p>
 
-    <p>
-    音停止後に外部確認を行った事例では、建造物への損傷および物理的痕跡は一切確認されていない。
-    ただし、被験者の一部に睡眠障害および軽度の被監視感が継続する例がある。因果関係は不明。
-    </p>
-  </div>
+<p>
+消失直前、対象は「違和感」を覚えると証言されている。
+ただしこれは第三者証言によるものであり、本人記録は存在しない。
+</p>
 
-  <div class="section">
-    <p>
-    内部注意:
-    本記録は定期的に更新される。
-    前回閲覧時と記述内容に差異が認められた場合、端末を終了し、上位権限管理者へ報告すること。
-    </p>
-    <p style="opacity:0.6;">
-    ※ 当該文書は閲覧ログを取得しています。最終アクセス時刻は自動記録されます。
-    </p>
-  </div>
+<p>
+防犯カメラ映像では、対象が歪曲空間に接触した瞬間、フレーム欠落が発生。
+次フレームでは対象が存在しない。
+</p>
 
-  <footer>
-  CII INTERNAL DATABASE<br>
-  LEVEL 3 CLEARANCE
-  </footer>
+<p>
+血痕、衣類残留、物品落下等は一切確認されていない。
+</p>
+
+<p>
+被害者の電子機器は現場に残存することが多い。
+端末は一時的に強制再起動状態に移行する。
+</p>
+</div>
+
+<!-- 発生環境 -->
+<div class="section">
+<h2>4. 発生環境分析</h2>
+
+<p>
+屋内・屋外問わず発生。
+コンクリート構造物内での事例が多いが統計的有意性なし。
+</p>
+
+<p>
+湿度・気圧・磁場強度との明確な相関は未確認。
+</p>
+
+<p>
+発生地点周辺で放射線量上昇は確認されていない。
+</p>
+
+<p>
+地磁気異常も検出されていない。
+</p>
+</div>
+
+<!-- 観測データ -->
+<div class="section">
+<h2>5. 観測データ</h2>
+
+<p>
+高速度カメラ観測では、
+歪曲面が0.2秒間存在し、その後急速収縮する様子が記録された。
+</p>
+
+<p>
+フレーム解析により、歪曲内部は外部光を吸収する傾向を示す。
+ただし吸収率は一定ではない。
+</p>
+
+<p>
+電磁波センサーでは瞬間的なノイズピークが検出。
+周波数帯は1.3GHz付近。
+</p>
+</div>
+
+<!-- 時間偏位 -->
+<div class="section">
+<h2>6. 時間偏位特性</h2>
+
+<p>
+一部事例では、発生地点周辺の時計が最大0.6秒遅延。
+</p>
+
+<p>
+監視映像ログのタイムスタンプが重複する例あり。
+</p>
+
+<p>
+時間偏位は発生範囲半径約3m以内に限定される。
+</p>
+</div>
+
+<!-- 残留現象 -->
+<div class="section">
+<h2>7. 残留現象</h2>
+
+<p>
+消失地点に微弱な静電気残留が確認された事例がある。
+</p>
+
+<p>
+空間に「圧迫感」を覚える証言あり。
+心理的影響の可能性を排除できない。
+</p>
+
+<p>
+最大観測持続時間は約3分。
+</p>
+</div>
+
+<!-- 詳細トグル -->
+<div class="section">
+<div class="link" id="toggleDetailBtn" onclick="toggleDetail()">▶ 詳細報告</div>
+<div id="detailSection" style="display:none; margin-top:20px; line-height:2.1;">
+
+<p>
+内部試験により人工歪曲再現を試みたが成功例なし。
+</p>
+
+<p>
+量子干渉理論との関連仮説は提出されたが、証明不能。
+</p>
+
+<p>
+現時点で収容・制御は不可能。
+</p>
+
+<p>
+発生兆候を事前検知する技術は存在しない。
+</p>
+
+<p>
+当該文書は随時更新される。
+</p>
+
+</div>
+</div>
+
+<div class="section">
+<h2>8. 内部警告</h2>
+<p>
+ENTITY 9867は非収容型現象である。
+発生を確認した場合、直ちに距離を確保し観測のみ行うこと。
+接触は禁止されている。
+</p>
+</div>
+
+<footer>
+CII INTERNAL DATABASE<br>
+LEVEL 3 CLEARANCE
+</footer>
+
 </div>
 
 <script>
-function showGuide(){
-  document.getElementById("login").style.display="none";
-  document.getElementById("guide").style.display="block";
-}
-
-function backToLogin(){
-  document.getElementById("guide").style.display="none";
-  document.getElementById("login").style.display="flex";
-}
-
 window.toggleDetail = function(){
   const detail = document.getElementById("detailSection");
   const btn = document.getElementById("toggleDetailBtn");
   if(detail.style.display === "none"){
     detail.style.display = "block";
-    btn.textContent = "▼ 詳細";
+    btn.textContent = "▼ 詳細報告";
   } else {
     detail.style.display = "none";
-    btn.textContent = "▶ 詳細";
+    btn.textContent = "▶ 詳細報告";
   }
 };
 
-/* ===== Persistent Lock System & Auth ===== */
 (function(){
-const LOCK_TIME = 60000; 
+const LOCK_TIME = 60000;
 let attempts = 0;
-
 const errorMsg = document.getElementById("errorMsg");
 const input = document.getElementById("password");
 
@@ -292,23 +368,16 @@ function setLock(){
 function clearLock(){
   localStorage.removeItem("lockUntil");
   attempts = 0;
-  if(input) input.disabled = false;
-  if(errorMsg) errorMsg.textContent = "";
+  input.disabled = false;
+  errorMsg.textContent = "";
 }
 
 function lockScreen(){
   const until = getLockUntil();
   if(!until) return;
-
   const remaining = Math.max(0, Math.ceil((until - Date.now())/1000));
-
-  if(input) input.disabled = true;
-  if(errorMsg) {
-    errorMsg.style.color = "#c00";
-    errorMsg.textContent = 
-      "入力回数が制限を超えました。ロック中 (" + remaining + "秒)";
-  }
-
+  input.disabled = true;
+  errorMsg.textContent = "ロック中 (" + remaining + "秒)";
   if(remaining > 0){
     setTimeout(lockScreen,1000);
   }else{
@@ -322,19 +391,13 @@ window.checkPassword = function(){
     return;
   }
 
-  const value = input.value;
-
-  if(value === "CII3"){
+  if(input.value === "CII3"){
     clearLock();
     document.getElementById("login").style.display="none";
     document.getElementById("content").style.display="block";
   }else{
     attempts++;
-    if(errorMsg){
-      errorMsg.style.color = "#c00";
-      errorMsg.textContent="パスワードが間違っています。";
-    }
-
+    errorMsg.textContent="パスワードが間違っています。";
     if(attempts >= 3){
       setLock();
     }
@@ -349,5 +412,6 @@ window.addEventListener("load", function(){
 
 })();
 </script>
+
 </body>
-</html>
+  </html>
