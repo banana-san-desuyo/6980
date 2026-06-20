@@ -64,13 +64,50 @@ input{
   background:transparent;
   color:#aaa;
   border:0;
-  font-size:18px;
-  line-height:1;
   cursor:pointer;
 }
 
-.password-toggle:hover{
-  color:#fff;
+.password-toggle:hover .eye-icon,
+.password-toggle:hover .eye-icon::after{
+  border-color:#fff;
+}
+
+.password-toggle:hover .eye-icon::before{
+  background:#fff;
+}
+
+.eye-icon{
+  display:block;
+  position:relative;
+  width:20px;
+  height:12px;
+  border:2px solid #aaa;
+  border-radius:50% / 60%;
+  box-sizing:border-box;
+}
+
+.eye-icon::after{
+  content:"";
+  position:absolute;
+  width:5px;
+  height:5px;
+  border:2px solid #aaa;
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.password-toggle.is-visible .eye-icon::before{
+  content:"";
+  position:absolute;
+  width:26px;
+  height:2px;
+  background:#aaa;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-35deg);
+  z-index:2;
 }
 
 button{
@@ -148,13 +185,16 @@ footer{
       autocomplete="off"
       lang="en"
     >
+
     <button
       type="button"
       class="password-toggle"
       id="passwordToggle"
       aria-label="パスワードを表示"
       onclick="togglePasswordVisibility()"
-    >👁</button>
+    >
+      <span class="eye-icon"></span>
+    </button>
   </div>
 
   <button onclick="checkPassword()">ENTER</button>
@@ -371,11 +411,11 @@ window.togglePasswordVisibility = function(){
 
   if(input.type === "password"){
     input.type = "text";
-    toggle.textContent = "◉̸";
+    toggle.classList.add("is-visible");
     toggle.setAttribute("aria-label", "パスワードを隠す");
   }else{
     input.type = "password";
-    toggle.textContent = "👁";
+    toggle.classList.remove("is-visible");
     toggle.setAttribute("aria-label", "パスワードを表示");
   }
 };
