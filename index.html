@@ -55,16 +55,54 @@ input{
 .password-toggle{
   position:absolute;
   top:50%;
-  right:10px;
+  right:8px;
   transform:translateY(-50%);
   margin:0;
   padding:0;
-  width:24px;
-  height:24px;
+  width:30px;
+  height:30px;
   background:transparent;
-  color:#aaa;
   border:0;
   cursor:pointer;
+  font-size:0;
+  line-height:0;
+}
+
+.eye-icon{
+  display:block;
+  position:absolute;
+  top:9px;
+  left:4px;
+  width:21px;
+  height:13px;
+  border:2px solid #aaa;
+  border-radius:50%;
+  box-sizing:border-box;
+}
+
+.eye-icon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:6px;
+  height:6px;
+  border:2px solid #aaa;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  box-sizing:border-box;
+}
+
+.password-toggle.is-visible .eye-icon::before{
+  content:"";
+  position:absolute;
+  top:4px;
+  left:-5px;
+  width:28px;
+  height:2px;
+  background:#aaa;
+  transform:rotate(-35deg);
+  transform-origin:center;
 }
 
 .password-toggle:hover .eye-icon,
@@ -72,42 +110,8 @@ input{
   border-color:#fff;
 }
 
-.password-toggle:hover .eye-icon::before{
+.password-toggle:hover.is-visible .eye-icon::before{
   background:#fff;
-}
-
-.eye-icon{
-  display:block;
-  position:relative;
-  width:20px;
-  height:12px;
-  border:2px solid #aaa;
-  border-radius:50% / 60%;
-  box-sizing:border-box;
-}
-
-.eye-icon::after{
-  content:"";
-  position:absolute;
-  width:5px;
-  height:5px;
-  border:2px solid #aaa;
-  border-radius:50%;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-.password-toggle.is-visible .eye-icon::before{
-  content:"";
-  position:absolute;
-  width:26px;
-  height:2px;
-  background:#aaa;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%) rotate(-35deg);
-  z-index:2;
 }
 
 button{
@@ -185,16 +189,13 @@ footer{
       autocomplete="off"
       lang="en"
     >
-
     <button
       type="button"
       class="password-toggle"
       id="passwordToggle"
       aria-label="パスワードを表示"
       onclick="togglePasswordVisibility()"
-    >
-      <span class="eye-icon"></span>
-    </button>
+    ><span class="eye-icon"></span></button>
   </div>
 
   <button onclick="checkPassword()">ENTER</button>
@@ -459,7 +460,6 @@ window.toggleDetail = function(){
 
   function lockScreen(){
     const until = getLockUntil();
-
     if(!until) return;
 
     const remaining = Math.max(0, Math.ceil((until - Date.now()) / 1000));
