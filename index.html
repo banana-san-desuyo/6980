@@ -140,7 +140,14 @@ footer{
   <p>LEVEL 3 ACCESS REQUIRED</p>
 
   <div class="password-wrap">
-    <input type="password" id="password" placeholder="Password">
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      inputmode="latin"
+      autocomplete="off"
+      lang="en"
+    >
     <button
       type="button"
       class="password-toggle"
@@ -364,7 +371,7 @@ window.togglePasswordVisibility = function(){
 
   if(input.type === "password"){
     input.type = "text";
-    toggle.textContent = "🙈";
+    toggle.textContent = "◉̸";
     toggle.setAttribute("aria-label", "パスワードを隠す");
   }else{
     input.type = "password";
@@ -446,6 +453,22 @@ window.toggleDetail = function(){
       }
     }
   };
+
+  input.addEventListener("input", function(){
+    this.value = this.value.replace(/[^\x20-\x7E]/g, "");
+  });
+
+  input.addEventListener("compositionstart", function(e){
+    e.preventDefault();
+  });
+
+  input.addEventListener("paste", function(e){
+    const pasted = (e.clipboardData || window.clipboardData).getData("text");
+
+    if(/[^\x20-\x7E]/.test(pasted)){
+      e.preventDefault();
+    }
+  });
 
   input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
