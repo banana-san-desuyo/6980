@@ -11,7 +11,9 @@ body{
   color:#e5e5e5;
   font-family:"Yu Gothic","Meiryo",sans-serif;
   opacity:0;
-  animation: fadeIn 1.8s ease forwards;
+  animation:fadeIn 1.8s ease forwards;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
 @keyframes fadeIn{
@@ -33,12 +35,42 @@ body{
   align-items:center;
 }
 
+.password-wrap{
+  position:relative;
+  width:260px;
+}
+
 input{
   background:#111;
   border:1px solid #333;
   color:#eee;
   padding:10px;
-  width:260px;
+  width:100%;
+  box-sizing:border-box;
+  padding-right:42px;
+  user-select:text;
+  -webkit-user-select:text;
+}
+
+.password-toggle{
+  position:absolute;
+  top:50%;
+  right:10px;
+  transform:translateY(-50%);
+  margin:0;
+  padding:0;
+  width:24px;
+  height:24px;
+  background:transparent;
+  color:#aaa;
+  border:0;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.password-toggle:hover{
+  color:#fff;
 }
 
 button{
@@ -106,7 +138,18 @@ footer{
 <div class="login screen" id="login" style="display:flex;">
   <h1>CII INTERNAL DATABASE</h1>
   <p>LEVEL 3 ACCESS REQUIRED</p>
-  <input type="password" id="password" placeholder="Password">
+
+  <div class="password-wrap">
+    <input type="password" id="password" placeholder="Password">
+    <button
+      type="button"
+      class="password-toggle"
+      id="passwordToggle"
+      aria-label="パスワードを表示"
+      onclick="togglePasswordVisibility()"
+    >👁</button>
+  </div>
+
   <button onclick="checkPassword()">ENTER</button>
   <div class="error" id="errorMsg"></div>
 </div>
@@ -128,7 +171,6 @@ footer{
 ※ 本目次は参照用であり、展開機能は存在しない。
 </div>
 
-<!-- 概要 -->
 <div class="section">
 <h2>1. 概要</h2>
 
@@ -154,7 +196,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 粒子トンネル現象 -->
 <div class="section">
 <h2>2. 粒子トンネル現象の特性</h2>
 
@@ -185,7 +226,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 被害者 -->
 <div class="section">
 <h2>3. 被害者記録</h2>
 
@@ -215,7 +255,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 発生環境 -->
 <div class="section">
 <h2>4. 発生環境分析</h2>
 
@@ -237,7 +276,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 観測データ -->
 <div class="section">
 <h2>5. 観測データ</h2>
 
@@ -257,7 +295,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 時間偏位 -->
 <div class="section">
 <h2>6. 時間偏位特性</h2>
 
@@ -274,7 +311,6 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 残留現象 -->
 <div class="section">
 <h2>7. 残留現象</h2>
 
@@ -292,36 +328,21 @@ ENTITY 9867は、局所的空間において突発的に発生する「粒子ト
 </p>
 </div>
 
-<!-- 詳細トグル -->
 <div class="section">
-<div class="link" id="toggleDetailBtn" onclick="toggleDetail()">▶ 詳細報告</div>
-<div id="detailSection" style="display:none; margin-top:20px; line-height:2.1;">
+  <div class="link" id="toggleDetailBtn" onclick="toggleDetail()">▶ 詳細報告</div>
 
-<p>
-内部試験により人工歪曲再現を試みたが成功例なし。
-</p>
-
-<p>
-量子干渉理論との関連仮説は提出されたが、証明不能。
-</p>
-
-<p>
-現時点で収容・制御は不可能。
-</p>
-
-<p>
-発生兆候を事前検知する技術は存在しない。
-</p>
-
-<p>
-当該文書は随時更新される。
-</p>
-
-</div>
+  <div id="detailSection" style="display:none; margin-top:20px; line-height:2.1;">
+    <p>内部試験により人工歪曲再現を試みたが成功例なし。</p>
+    <p>量子干渉理論との関連仮説は提出されたが、証明不能。</p>
+    <p>現時点で収容・制御は不可能。</p>
+    <p>発生兆候を事前検知する技術は存在しない。</p>
+    <p>当該文書は随時更新される。</p>
+  </div>
 </div>
 
 <div class="section">
 <h2>8. 内部警告</h2>
+
 <p>
 ENTITY 9867は非収容型現象である。
 発生を確認した場合、直ちに距離を確保し観測のみ行うこと。
@@ -337,81 +358,132 @@ LEVEL 3 CLEARANCE
 </div>
 
 <script>
+window.togglePasswordVisibility = function(){
+  const input = document.getElementById("password");
+  const toggle = document.getElementById("passwordToggle");
+
+  if(input.type === "password"){
+    input.type = "text";
+    toggle.textContent = "🙈";
+    toggle.setAttribute("aria-label", "パスワードを隠す");
+  }else{
+    input.type = "password";
+    toggle.textContent = "👁";
+    toggle.setAttribute("aria-label", "パスワードを表示");
+  }
+};
+
 window.toggleDetail = function(){
   const detail = document.getElementById("detailSection");
   const btn = document.getElementById("toggleDetailBtn");
+
   if(detail.style.display === "none"){
     detail.style.display = "block";
     btn.textContent = "▼ 詳細報告";
-  } else {
+  }else{
     detail.style.display = "none";
     btn.textContent = "▶ 詳細報告";
   }
 };
 
 (function(){
-const LOCK_TIME = 60000;
-let attempts = 0;
-const errorMsg = document.getElementById("errorMsg");
-const input = document.getElementById("password");
+  const LOCK_TIME = 60000;
+  let attempts = 0;
 
-function getLockUntil(){
-  return parseInt(localStorage.getItem("lockUntil") || "0", 10);
-}
+  const errorMsg = document.getElementById("errorMsg");
+  const input = document.getElementById("password");
 
-function setLock(){
-  const until = Date.now() + LOCK_TIME;
-  localStorage.setItem("lockUntil", until);
-  lockScreen();
-}
-
-function clearLock(){
-  localStorage.removeItem("lockUntil");
-  attempts = 0;
-  input.disabled = false;
-  errorMsg.textContent = "";
-}
-
-function lockScreen(){
-  const until = getLockUntil();
-  if(!until) return;
-  const remaining = Math.max(0, Math.ceil((until - Date.now())/1000));
-  input.disabled = true;
-  errorMsg.textContent = "ロック中 (" + remaining + "秒)";
-  if(remaining > 0){
-    setTimeout(lockScreen,1000);
-  }else{
-    clearLock();
+  function getLockUntil(){
+    return parseInt(localStorage.getItem("lockUntil") || "0", 10);
   }
-}
 
-window.checkPassword = function(){
-  if(Date.now() < getLockUntil()){
+  function setLock(){
+    const until = Date.now() + LOCK_TIME;
+    localStorage.setItem("lockUntil", until);
     lockScreen();
+  }
+
+  function clearLock(){
+    localStorage.removeItem("lockUntil");
+    attempts = 0;
+    input.disabled = false;
+    errorMsg.textContent = "";
+  }
+
+  function lockScreen(){
+    const until = getLockUntil();
+
+    if(!until) return;
+
+    const remaining = Math.max(0, Math.ceil((until - Date.now()) / 1000));
+
+    input.disabled = true;
+    errorMsg.textContent = "ロック中 (" + remaining + "秒)";
+
+    if(remaining > 0){
+      setTimeout(lockScreen, 1000);
+    }else{
+      clearLock();
+    }
+  }
+
+  window.checkPassword = function(){
+    if(Date.now() < getLockUntil()){
+      lockScreen();
+      return;
+    }
+
+    if(input.value === "CII3"){
+      clearLock();
+      document.getElementById("login").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    }else{
+      attempts++;
+      errorMsg.textContent = "パスワードが間違っています。";
+
+      if(attempts >= 3){
+        setLock();
+      }
+    }
+  };
+
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      checkPassword();
+    }
+  });
+
+  window.addEventListener("load", function(){
+    if(Date.now() < getLockUntil()){
+      lockScreen();
+    }
+  });
+})();
+
+document.addEventListener("copy", function(e){
+  e.preventDefault();
+});
+
+document.addEventListener("cut", function(e){
+  e.preventDefault();
+});
+
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e){
+  if(e.target.tagName === "INPUT"){
     return;
   }
 
-  if(input.value === "CII3"){
-    clearLock();
-    document.getElementById("login").style.display="none";
-    document.getElementById("content").style.display="block";
-  }else{
-    attempts++;
-    errorMsg.textContent="パスワードが間違っています。";
-    if(attempts >= 3){
-      setLock();
-    }
-  }
-};
-
-window.addEventListener("load", function(){
-  if(Date.now() < getLockUntil()){
-    lockScreen();
-  }
+  e.preventDefault();
 });
 
-})();
+document.addEventListener("dragstart", function(e){
+  e.preventDefault();
+});
 </script>
 
 </body>
-  </html>
+</html>
